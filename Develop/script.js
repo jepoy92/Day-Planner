@@ -18,9 +18,11 @@ for (var i = 0; i < 12; i++) {
 
     rowElement.appendTo(".timeContainer");
     
-    const hourDiv = $(`<div class = 'col-md-1 hour' id = >`);
+    const hourDiv = $(`<div class = 'col-md-1 hour' id = ${hourText + hourString}>`);
 
     var hourText = i + 9
+
+    var hourString = "hour"
     
     if ( i < 3 ) {
 
