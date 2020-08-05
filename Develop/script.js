@@ -21,6 +21,8 @@ for (var i = 0; i < 12; i++) {
 
     var hourString = "hour"
 
+    var hourID = hourText + hourString
+
     if ( i < 3 ) {
 
         hourDiv.text(hourText + "AM")
@@ -37,13 +39,31 @@ for (var i = 0; i < 12; i++) {
 
     // saveImg.appendTo(hourDiv)
 
-    const timeBlockDiv = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourText}>`)
+    const timeBlockDiv = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourID}>`)
 
     timeBlockDiv.appendTo(rowElement);
 
-    const saveBtn = $("<button class='saveBtn col-md-1'>");
+    const saveBtn = $(`<button class='saveBtn col-md-1' value = ${hourID}>`);
+
+    saveBtn.on("click", function(event) {
+        
+        event.preventDefault();
+
+        var Id = $(this).val()
+            
+        var input = $(`#${Id}`).val() 
+
+        localStorage.setItem(Id, input);
+        
+    })
 
     saveBtn.appendTo(rowElement)
+
+    var currentTime = moment().format("h")
+
+    var timeBlockElement = $(`#${hourID}`)
+
+    console.log(timeBlockElement);
 
     // // const saveImg = $("<img src = ' ../Assets/saveBtn.ico' alt = 'floppy disk icon'>")
 
