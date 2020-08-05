@@ -1,31 +1,26 @@
-var addToTasks = []
-
-
 function currentDate () {
     var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
 
     $("#currentDay").text(currentTime);
   }
-  
+
 setInterval(currentDate,1000);
 
 currentDate();
 
 
-for (var i = 0; i < 24; i++) {
+for (var i = 0; i < 12; i++) {
+
+    const rowElement = $("<div class = 'row'>");
+
+    rowElement.appendTo(".timeContainer");
+
+    const hourDiv = $(`<div class = 'col-md-1 hour' id = ${hourText + hourString}>`);
 
     var hourText = i + 9
 
     var hourString = "hour"
 
-    var hourID = hourText + hourString
-
-    const rowElement = $("<div class = 'row'>");
-
-    rowElement.appendTo(".timeContainer");
-    
-    const hourDiv = $(`<div class = 'col-md-1 hour' id = ${hourText}>`);
-    
     if ( i < 3 ) {
 
         hourDiv.text(hourText + "AM")
@@ -37,49 +32,60 @@ for (var i = 0; i < 24; i++) {
 
 
     hourDiv.appendTo(rowElement);
-    
 
     // const saveImg = $("<img src = ' ../Assets/saveBtn.ico' alt = 'floppy disk icon'>")
 
     // saveImg.appendTo(hourDiv)
 
-    const timeBlockDiv = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourID}>`)
+    const timeBlockDiv = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourText}>`)
 
     timeBlockDiv.appendTo(rowElement);
-    
-    const saveBtn = $(`<button class='saveBtn col-md-1' value = ${hourID}>`);
 
-    saveBtn.on("click", function(event) {
-        
-        event.preventDefault();
-
-        var Id = $(this).val()
-            
-        var input = $(`#${Id}`).val() 
-
-        localStorage.setItem(Id, input);
-
-        
-    })
+    const saveBtn = $("<button class='saveBtn col-md-1'>");
 
     saveBtn.appendTo(rowElement)
 
-    const currentHour = moment().format("h")
+    // // const saveImg = $("<img src = ' ../Assets/saveBtn.ico' alt = 'floppy disk icon'>")
 
-    var hourElement = $(`#${hourID}`)
+    // // saveImg.appendTo(hourDiv)
 
-    var present = hourElement.addClass("present")
-    console.log(present)
-
-    
-    renderTasks();
-    
 }
 
-function renderTasks () {
-    const keys = Object.entries(localStorage)
+function renderTask () {
 
-    keys.forEach(key => {
-        $("#" + key[0]).val(key[1])
-    });
-}
+
+    for (var i = 0; i < localStorage.length; i++) {
+
+        var taskItem = i + 9
+
+        var inputTask = localStorage.getItem(`${taskItem}`) 
+
+        $(`#${taskItem}`).val(inputTask)
+
+        }
+
+    }
+
+$(document).ready(function () {
+
+    $(".saveBtn").on("click", function(event) {
+
+        for (var i = 0; localStorage.length; i++) {
+
+        event.preventDefault();
+
+        var textID = i + 9
+
+        var input = $(`#${textID}`).val() 
+
+        console.log(textID)
+
+        localStorage.setItem(`${textID}`, input);
+
+        }
+
+    })
+
+    renderTask();
+
+});
