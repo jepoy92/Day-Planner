@@ -23,7 +23,7 @@ Moment.js (past, present, future)
 
 The following animation demonstrates the application functionality:
 
-![day planner demo](index.html)
+![day planner demo](Assets/example.gif)
 
 ## Thank you to my wonderful study group! Please follow their githubs down below!
 
