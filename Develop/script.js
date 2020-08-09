@@ -18,6 +18,9 @@ for (var i = 0; i < 25; i++) {
 
     var hourString = "hour";
 
+    var workingHours = ["01hour", "02hour", "03hour", "04hour", "05hour", "06hour", "07hour", "08hour", "09hour", "10hour", "11hour", 
+    "12hour", "13hour", "14hour", "15hour", "16hour", "17hour", "18hour", "19hour", "20hour", "21hour", "22hour", "23hour", "24hour", "25hour"]
+
     var hourID = hourText + hourString;
 
     const rowElement = $("<div class = 'row'>");
@@ -47,15 +50,17 @@ for (var i = 0; i < 25; i++) {
 
     // saveImg.appendTo(hourDiv)
 
-    const timeBlockDiv = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourID} value = ${hourID}>`)
+    const timeBlockDiv = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourID} value = '${workingHours[i]}'>`)
+
+    // value= ${hourID} 
 
     timeBlockDiv.appendTo(rowElement);
 
-    // const inputBlock = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourID}>`)
+    // const textarea = $(`<textarea class ='col-md-10 time-block' id = ${textID} value = ${hourID}>`)
 
-    // timeBlockDiv.append(timeBlockDiv)
+    // timeBlockDiv.append(textarea)
 
-    const currentHour = moment().add(1, "hours").format("H")
+    const currentHour = moment().add(1, "hours").format("HH")
 
     const adjustedHour = currentHour + "hour"
 
@@ -63,13 +68,13 @@ for (var i = 0; i < 25; i++) {
 
     var hourVal = hourElement.val()
 
-    console.log(hourElement)
+    // console.log(hourVal)
 
     if ( hourVal < adjustedHour) {
         hourElement.addClass("past")
     } else if (hourVal === adjustedHour) {
         hourElement.addClass("present")
-    } else if (hourVal > adjustedHour) {
+    } else {
         hourElement.addClass("future")
     }
 
