@@ -44,11 +44,6 @@ for (var i = 0; i < 25; i++) {
 
 
     hourDiv.appendTo(rowElement);
-    
-
-    // const saveImg = $("<img src = ' ../Assets/saveBtn.ico' alt = 'floppy disk icon'>")
-
-    // saveImg.appendTo(hourDiv)
 
     const timeBlockDiv = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourID} value = '${workingHours[i]}'>`)
 
@@ -56,9 +51,6 @@ for (var i = 0; i < 25; i++) {
 
     timeBlockDiv.appendTo(rowElement);
 
-    // const textarea = $(`<textarea class ='col-md-10 time-block' id = ${textID} value = ${hourID}>`)
-
-    // timeBlockDiv.append(textarea)
 
     const currentHour = moment().add(1, "hours").format("HH")
 
@@ -94,6 +86,10 @@ for (var i = 0; i < 25; i++) {
 
         
     })
+
+    const saveImg = $("<img src = ' ../Assets/saveBtn.png' alt = 'floppy disk icon'>")
+
+    saveImg.appendTo(saveBtn)
 
     saveBtn.appendTo(rowElement)
     
