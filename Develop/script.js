@@ -51,6 +51,10 @@ for (var i = 0; i < 25; i++) {
 
     timeBlockDiv.appendTo(rowElement);
 
+    // const inputBlock = $(`<input type = 'text' class ='col-md-10 time-block' id = ${hourID}>`)
+
+    // timeBlockDiv.append(timeBlockDiv)
+
     const currentHour = moment().add(1, "hours").format("H")
 
     const adjustedHour = currentHour + "hour"
