@@ -87,7 +87,7 @@ for (var i = 0; i < 25; i++) {
         
     })
 
-    const saveImg = $("<img src = '../Assets/saveBtn.png' alt = 'floppy disk icon'>")
+    const saveImg = $("<img src = '/Assets/saveBtn.png' alt = 'floppy disk icon'>")
 
     saveImg.appendTo(saveBtn)
 
