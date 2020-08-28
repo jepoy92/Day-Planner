@@ -87,7 +87,7 @@ for (var i = 0; i < 25; i++) {
         
     })
 
-    const saveImg = $("<img src = '/Assets/saveBtn.png' alt = 'floppy disk icon'>")
+    const saveImg = $("<img src = '../Assets/saveBtn.png' alt = 'floppy disk icon'>")
 
     saveImg.appendTo(saveBtn)
 
@@ -95,9 +95,6 @@ for (var i = 0; i < 25; i++) {
     
     renderTasks();
     
-    // aChristmasCarol();
-
-    // console.log(aChristmasCarol)
 }
 
 
@@ -109,30 +106,3 @@ function renderTasks () {
     });
 }
 
-function aChristmasCarol() {
-
-    for ( var i = 0; i < 25; i++) {
-
-        var hourText = i + 1;
-
-        var hourString = "hour";
-    
-        var hourID = hourText + hourString;
-
-        const currentHour = moment().add(1, "hours").format("H")
-
-        const adjustedHour = currentHour + "hour"
-    
-        var hourElement = $(`#${hourID}`)
-    
-        if (adjustedHour === hourElement) {
-            hourElement.addClass("present")
-
-            console.log(adjustedHour)
-
-        }
-
-    }
-    
-
-}
